@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AgenceServiceService } from '../services/agence-service.service';
 import { UserServiceService } from '../services/User-service.service';
 
 @Component({
@@ -15,15 +16,15 @@ export class GestionUsersComponent implements OnInit {
   idDelete: any = 0;
   users: any;
   index: number;
-  agencesList: any = ['Tunis', 'Sousse', 'Sfax'];
+  agencesList: any ;
 
   /*  initialisation des entrées du formulaire add  */
   addUsersForm = new FormGroup({
     nom: new FormControl('', [Validators.required]),
     prenom: new FormControl('', [Validators.required]),
     agence: new FormControl('', [Validators.required]),
-    nomUser: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required])
+    username: new FormControl('', [Validators.required]),
+    motDePasse: new FormControl('', [Validators.required])
   });
 
   /*  initialisation des entrées du formulaire edit */
@@ -31,15 +32,18 @@ export class GestionUsersComponent implements OnInit {
     nom: new FormControl('', [Validators.required]),
     prenom: new FormControl('', [Validators.required]),
     agence: new FormControl('', [Validators.required]),
-    nomUser: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required])
+    username: new FormControl('', [Validators.required]),
+    motDePasse: new FormControl('', [Validators.required])
   });
 
-  constructor(private service: UserServiceService) { }
+  constructor(private service: UserServiceService, private serviceAgence: AgenceServiceService) { }
 
   ngOnInit(): void {
     let response = this.service.getUsers();
     response.subscribe((data) => this.users = data);
+    let responseAgence = this.serviceAgence.getAgences();
+    responseAgence.subscribe((data1) => this.agencesList = data1);
+
   }
 
   /* fonction click addUser */
@@ -50,14 +54,17 @@ export class GestionUsersComponent implements OnInit {
     }
     else {
       let user = this.addUsersForm.value;
+      let a = user.agence;
+      console.log(a);
+      user.agence = null;
       console.log(user);
-      let response = this.service.addUser(user);
+      let response = this.service.addUser(user ,a );
       let msg: any;
       response.subscribe((data) => msg = data);
 
       console.log("retour" + msg);
       //recharger la page
-      alert("User ajouté avec succés");
+      alert("Utilisateur ajouté avec succés");
       window.location.reload();
     }
   }

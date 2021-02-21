@@ -23,9 +23,10 @@
                             </span>
                         </th>
                         <th>Nom</th>
-                        <th>Prenom</th>
-                        <th>Agence</th>
+                        <th>Prénom</th>
                         <th>Nom d'utilisateur</th>
+                        <th>Mot De Passe</th>
+                        <th>Agence</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -40,10 +41,12 @@
                         </td>
                         <td>{{ user.nom }}</td>
                         <td>{{ user.prenom }}</td>
-                        <td>{{ user.agence }}</td>
-                        <td>{{ user.nomUser }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.motDePasse }}</td>
+                        <td>{{ user.agence.nom }}</td>
+                        
                         <td>
-                            <a href="#editUserModal" class="edit" data-toggle="modal" role="button"
+                            <a href="#editUsersModal" class="edit" data-toggle="modal" role="button"
                                 (click)="moveDataToModifForm(i)"><i class="material-icons" data-toggle="tooltip"
                                     title="Modifier">&#xE254;</i></a>
 
@@ -80,45 +83,45 @@
                         <label>Prenom</label>
                         <input type="text" id="prenom" formControlName="prenom" class="form-control"
                             [ngClass]="{'is-invalid': submitted && addUsersForm.controls.prenom.errors, 'is-valid': submitted &&  !addUsersForm.controls.prenom.errors}">
-                        <div *ngIf="submitted && addUsersForm.controls.Prenom.errors" class="invalid-feedback d-block">
+                        <div *ngIf="submitted && addUsersForm.controls.prenom.errors" class="invalid-feedback d-block">
                             <div *ngIf="addUsersForm.controls.prenom.errors.required">Ce champ doit être rempli</div>
                         </div>
                     </div>
-                    <!-- ajout du champ select des agences -->
+                   <!--ajout du champ select des agences -->
                     <div class="form-group">
                         <label>Agences</label>
                         <select formControlName="agence" class="form-control">
-                            <option value="">Choisis une agence</option>
-                            <option *ngFor="let agence of agencesList" [ngValue]="agence">{{agence}}</option>
+                            <option value="">Choisir une agence</option>
+                            <option *ngFor="let agence of agencesList" value="{{agence.id}}">{{agence.nom}}</option>
                         </select>
-                        <!-- error block -->
+                         
                         <div *ngIf="submitted && addUsersForm.controls.agence.errors?.required" class="invalid-feedback d-block">
                             <sup>*</sup>Tu dois choisir une agence
                         </div>
                     </div>
-                        <div class="form-group">
-                            <label>Nom d'utilisateur</label>
-                            <input type="text" id="nomUser" formControlName="nomUser" class="form-control"
-                                [ngClass]="{'is-invalid': submitted && addUsersForm.controls.nomUser.errors, 'is-valid': submitted &&  !addUsersForm.controls.nomUser.errors}">
-                            <div *ngIf="submitted && addUsersForm.controls.nomUser.errors"
-                                class="invalid-feedback d-block">
-                                <div *ngIf="addUsersForm.controls.nomUser.errors.required">Ce champ doit être rempli</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Mot de passe</label>
-                            <input type="password" id="password" formControlName="password" class="form-control"
-                                [ngClass]="{'is-invalid': submitted && addUsersForm.controls.password.errors, 'is-valid': submitted &&  !addUsersForm.controls.password.errors}">
-                            <div *ngIf="submitted && addUsersForm.controls.password.errors"
-                                class="invalid-feedback d-block">
-                                <div *ngIf="addUsersForm.controls.password.errors.required">Ce champ doit être rempli</div>
-                            </div>
+                    
+                    <div class="form-group">
+                        <label>Nom d'utilisateur</label>
+                        <input type="text" id="nomUser" formControlName="username" class="form-control"
+                            [ngClass]="{'is-invalid': submitted && addUsersForm.controls.username.errors, 'is-valid': submitted &&  !addUsersForm.controls.username.errors}">
+                        <div *ngIf="submitted && addUsersForm.controls.username.errors" class="invalid-feedback d-block">
+                            <div *ngIf="addUsersForm.controls.username.errors.required">Ce champ doit être rempli</div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Annuler">
-                        <button class="btn btn-info" (click)="addUser()">Ajouter</button>
+                    <div class="form-group">
+                        <label>Mot de passe</label>
+                        <input type="password" id="password" formControlName="motDePasse" class="form-control"
+                            [ngClass]="{'is-invalid': submitted && addUsersForm.controls.motDePasse.errors, 'is-valid': submitted &&  !addUsersForm.controls.motDePasse.errors}">
+                        <div *ngIf="submitted && addUsersForm.controls.motDePasse.errors"
+                            class="invalid-feedback d-block">
+                            <div *ngIf="addUsersForm.controls.motDePasse.errors.required">Ce champ doit être rempli</div>
+                        </div>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                    <button class="btn btn-info" (click)="addUser()">Ajouter</button>
+                </div>
             </form>
         </div>
     </div>
@@ -145,7 +148,7 @@
                         <label>Prenom</label>
                         <input type="text" id="prenom1" formControlName="prenom" class="form-control"
                             [ngClass]="{'is-invalid': submitted && editUsersForm.controls.prenom.errors, 'is-valid': submitted &&  !editUsersForm.controls.prenom.errors}">
-                        <div *ngIf="submitted && editUsersForm.controls.Prenom.errors" class="invalid-feedback d-block">
+                        <div *ngIf="submitted && editUsersForm.controls.prenom.errors" class="invalid-feedback d-block">
                             <div *ngIf="editUsersForm.controls.prenom.errors.required">Ce champ doit être rempli</div>
                         </div>
                     </div>
@@ -157,34 +160,35 @@
                             <option *ngFor="let agence of agencesList" [ngValue]="agence">{{agence}}</option>
                         </select>
                         <!-- error block -->
-                        <div *ngIf="submitted && editUsersForm.controls.agence.errors?.required" class="invalid-feedback d-block">
+                        <div *ngIf="submitted && editUsersForm.controls.agence.errors?.required"
+                            class="invalid-feedback d-block">
                             <sup>*</sup>Tu dois choisir une agence
                         </div>
                     </div>
-                        <div class="form-group">
-                            <label>Nom d'utilisateur</label>
-                            <input type="text" id="nomUser1" formControlName="nomUser" class="form-control"
-                                [ngClass]="{'is-invalid': submitted && editUsersForm.controls.nomUser.errors, 'is-valid': submitted &&  !editUsersForm.controls.nomUser.errors}">
-                            <div *ngIf="submitted && editUsersForm.controls.nomUser.errors"
-                                class="invalid-feedback d-block">
-                                <div *ngIf="editUsersForm.controls.nomUser.errors.required">Ce champ doit être rempli</div>
-                            </div>
+                    <div class="form-group">
+                        <label>Nom d'utilisateur</label>
+                        <input type="text" id="nomUser1" formControlName="username" class="form-control"
+                            [ngClass]="{'is-invalid': submitted && editUsersForm.controls.username.errors, 'is-valid': submitted &&  !editUsersForm.controls.username.errors}">
+                        <div *ngIf="submitted && editUsersForm.controls.username.errors"
+                            class="invalid-feedback d-block">
+                            <div *ngIf="editUsersForm.controls.username.errors.required">Ce champ doit être rempli</div>
                         </div>
-                        <div class="form-group">
-                            <label>Mot de passe</label>
-                            <input type="password" id="password1" formControlName="password" class="form-control"
-                                [ngClass]="{'is-invalid': submitted && editUsersForm.controls.password.errors, 'is-valid': submitted &&  !editUsersForm.controls.password.errors}">
-                            <div *ngIf="submitted && editUsersForm.controls.password.errors"
-                                class="invalid-feedback d-block">
-                                <div *ngIf="editUsersForm.controls.password.errors.required">Ce champ doit être rempli
-                                </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Mot de passe</label>
+                        <input type="password" id="password1" formControlName="motDePasse" class="form-control"
+                            [ngClass]="{'is-invalid': submitted && editUsersForm.controls.motDePasse.errors, 'is-valid': submitted &&  !editUsersForm.controls.motDePasse.errors}">
+                        <div *ngIf="submitted && editUsersForm.controls.motDePasse.errors"
+                            class="invalid-feedback d-block">
+                            <div *ngIf="editUsersForm.controls.motDePasse.errors.required">Ce champ doit être rempli
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Annuler">
-                        <button class="btn btn-info" (click)="editUser(idEdit)">Enregistrer</button>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                    <button class="btn btn-info" (click)="editUser(idEdit)">Enregistrer</button>
+                </div>
             </form>
         </div>
     </div>
