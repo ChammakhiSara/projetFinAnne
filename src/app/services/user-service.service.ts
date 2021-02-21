@@ -24,8 +24,8 @@ export class UserServiceService {
   }
 
   // edit user with backend
-  public modifUser(id,user){
-    return this.http.put("http://localhost:8080/users/"+id,user,{responseType:'text' as 'json'});
+  public modifUser(id,user,agenceID){
+    return this.http.put("http://localhost:8080/users/"+id+"/"+agenceID,user,{responseType:'text' as 'json'});
   }
 
 }

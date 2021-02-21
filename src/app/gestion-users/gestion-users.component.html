@@ -157,7 +157,7 @@
                         <label>Agences</label>
                         <select formControlName="agence" class="form-control">
                             <option value="">Choisis une agence</option>
-                            <option *ngFor="let agence of agencesList" [ngValue]="agence">{{agence}}</option>
+                            <option *ngFor="let agence of agencesList" value="{{agence.id}}">{{agence.nom}}</option>
                         </select>
                         <!-- error block -->
                         <div *ngIf="submitted && editUsersForm.controls.agence.errors?.required"
@@ -203,7 +203,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <p>êtes-vous sûr de vouloir supprimer cet utilisateur?</p>
+                    <p>Etes-vous sûr de vouloir supprimer cet utilisateur?</p>
                     <p class="text-warning"><small>Cette action ne peut pas être annulée.</small></p>
                 </div>
                 <div class="modal-footer">

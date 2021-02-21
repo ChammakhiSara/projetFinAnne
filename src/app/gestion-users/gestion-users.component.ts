@@ -81,12 +81,16 @@ export class GestionUsersComponent implements OnInit {
   /* fonction click editUser */
   editUser(idEdit) {
     console.log(idEdit);
-    let use = this.editUsersForm.value;
-    let response = this.service.modifUser(idEdit, use);
-    let msg;
+    let user = this.editUsersForm.value;
+    let a = user.agence;
+    console.log(a);
+    user.agence = null;
+    console.log(user);
+    let response = this.service.modifUser(idEdit, user,a);
+    let msg : any;
     response.subscribe((data) => msg = data);
     alert("Utilisateur modifié avec succés");
-    window.location.reload();
+   // window.location.reload();
   }
 
   // Send ID to deleteForm 
