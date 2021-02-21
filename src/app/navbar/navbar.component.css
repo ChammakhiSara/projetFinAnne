@@ -1,8 +1,11 @@
-
 .navbar{
-    background: #010e5c !important;
+    background: #43c7ba !important;
+    padding-left: 40px;
+    padding-left: 40px;
 }
-
+.navbar-brand img{
+    width: 80px;
+}
 .dropdown{
     border-radius:0;
     border:0;
@@ -27,4 +30,8 @@
 .navbar .nav-item .nav-link:hover .navbar .nav-item .nav-link{
     color:red !important;
     
+}
+.banner{
+    padding-left: 40px;
+    padding-right: 40px;
 }
