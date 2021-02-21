@@ -1,0 +1,212 @@
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2>Gestion <b>des Utilisateurs</b></h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="#addUserModal" class="btn btn-info" data-toggle="modal"><i
+                                class="material-icons">&#xE147;</i> <span>Nouvel Utilisateur</span></a>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+
+                        <th>
+                            <span class="custom-checkbox">
+                                <input type="checkbox" id="selectAll">
+                                <label for="selectAll"></label>
+                            </span>
+                        </th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Agence</th>
+                        <th>Nom d'utilisateur</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users; let i=index">
+
+                        <td>
+                            <span class="custom-checkbox">
+                                <input type="checkbox" id="checkbox" name="options[]" value="i">
+                                <label for="checkbox"></label>
+                            </span>
+                        </td>
+                        <td>{{ user.nom }}</td>
+                        <td>{{ user.prenom }}</td>
+                        <td>{{ user.agence }}</td>
+                        <td>{{ user.nomUser }}</td>
+                        <td>
+                            <a href="#editUserModal" class="edit" data-toggle="modal" role="button"
+                                (click)="moveDataToModifForm(i)"><i class="material-icons" data-toggle="tooltip"
+                                    title="Modifier">&#xE254;</i></a>
+
+                            <a href="#deleteUserModal" class="delete" data-toggle="modal" role="button"
+                                (click)="moveIDToDeleteForm(i)"><i class="material-icons" data-toggle="tooltip"
+                                    title="Supprimer">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+<!-- Add Modal HTML -->
+<div id="addUserModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form [formGroup]="addUsersForm">
+                <div class="modal-header">
+                    <h4 class="modal-title">Ajouter un Utilisateur</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Nom</label>
+                        <input type="text" id="name" formControlName="nom" class="form-control"
+                            [ngClass]="{'is-invalid': submitted && addUsersForm.controls.nom.errors, 'is-valid': submitted &&  !addUsersForm.controls.nom.errors}">
+                        <div *ngIf="submitted && addUsersForm.controls.nom.errors" class="invalid-feedback d-block">
+                            <div *ngIf="addUsersForm.controls.nom.errors.required">Ce champ doit être rempli</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Prenom</label>
+                        <input type="text" id="prenom" formControlName="prenom" class="form-control"
+                            [ngClass]="{'is-invalid': submitted && addUsersForm.controls.prenom.errors, 'is-valid': submitted &&  !addUsersForm.controls.prenom.errors}">
+                        <div *ngIf="submitted && addUsersForm.controls.Prenom.errors" class="invalid-feedback d-block">
+                            <div *ngIf="addUsersForm.controls.prenom.errors.required">Ce champ doit être rempli</div>
+                        </div>
+                    </div>
+                    <!-- ajout du champ select des agences -->
+                    <div class="form-group">
+                        <label>Agences</label>
+                        <select formControlName="agence" class="form-control">
+                            <option value="">Choisis une agence</option>
+                            <option *ngFor="let agence of agencesList" [ngValue]="agence">{{agence}}</option>
+                        </select>
+                        <!-- error block -->
+                        <div *ngIf="submitted && addUsersForm.controls.agence.errors?.required" class="invalid-feedback d-block">
+                            <sup>*</sup>Tu dois choisir une agence
+                        </div>
+                    </div>
+                        <div class="form-group">
+                            <label>Nom d'utilisateur</label>
+                            <input type="text" id="nomUser" formControlName="nomUser" class="form-control"
+                                [ngClass]="{'is-invalid': submitted && addUsersForm.controls.nomUser.errors, 'is-valid': submitted &&  !addUsersForm.controls.nomUser.errors}">
+                            <div *ngIf="submitted && addUsersForm.controls.nomUser.errors"
+                                class="invalid-feedback d-block">
+                                <div *ngIf="addUsersForm.controls.nomUser.errors.required">Ce champ doit être rempli</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Mot de passe</label>
+                            <input type="password" id="password" formControlName="password" class="form-control"
+                                [ngClass]="{'is-invalid': submitted && addUsersForm.controls.password.errors, 'is-valid': submitted &&  !addUsersForm.controls.password.errors}">
+                            <div *ngIf="submitted && addUsersForm.controls.password.errors"
+                                class="invalid-feedback d-block">
+                                <div *ngIf="addUsersForm.controls.password.errors.required">Ce champ doit être rempli</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                        <button class="btn btn-info" (click)="addUser()">Ajouter</button>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Edit Modal HTML -->
+<div id="editUsersModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form [formGroup]="editUsersForm">
+                <div class="modal-header">
+                    <h4 class="modal-title">Modifier un utilisateur</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Nom</label>
+                        <input type="text" id="name1" formControlName="nom" class="form-control"
+                            [ngClass]="{'is-invalid': submitted && editUsersForm.controls.nom.errors, 'is-valid': submitted &&  !editUsersForm.controls.nom.errors}">
+                        <div *ngIf="submitted && editUsersForm.controls.nom.errors" class="invalid-feedback d-block">
+                            <div *ngIf="editUsersForm.controls.nom.errors.required">Ce champ doit être rempli</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Prenom</label>
+                        <input type="text" id="prenom1" formControlName="prenom" class="form-control"
+                            [ngClass]="{'is-invalid': submitted && editUsersForm.controls.prenom.errors, 'is-valid': submitted &&  !editUsersForm.controls.prenom.errors}">
+                        <div *ngIf="submitted && editUsersForm.controls.Prenom.errors" class="invalid-feedback d-block">
+                            <div *ngIf="editUsersForm.controls.prenom.errors.required">Ce champ doit être rempli</div>
+                        </div>
+                    </div>
+                    <!-- ajout du champ select des agences -->
+                    <div class="form-group">
+                        <label>Agences</label>
+                        <select formControlName="agence" class="form-control">
+                            <option value="">Choisis une agence</option>
+                            <option *ngFor="let agence of agencesList" [ngValue]="agence">{{agence}}</option>
+                        </select>
+                        <!-- error block -->
+                        <div *ngIf="submitted && editUsersForm.controls.agence.errors?.required" class="invalid-feedback d-block">
+                            <sup>*</sup>Tu dois choisir une agence
+                        </div>
+                    </div>
+                        <div class="form-group">
+                            <label>Nom d'utilisateur</label>
+                            <input type="text" id="nomUser1" formControlName="nomUser" class="form-control"
+                                [ngClass]="{'is-invalid': submitted && editUsersForm.controls.nomUser.errors, 'is-valid': submitted &&  !editUsersForm.controls.nomUser.errors}">
+                            <div *ngIf="submitted && editUsersForm.controls.nomUser.errors"
+                                class="invalid-feedback d-block">
+                                <div *ngIf="editUsersForm.controls.nomUser.errors.required">Ce champ doit être rempli</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Mot de passe</label>
+                            <input type="password" id="password1" formControlName="password" class="form-control"
+                                [ngClass]="{'is-invalid': submitted && editUsersForm.controls.password.errors, 'is-valid': submitted &&  !editUsersForm.controls.password.errors}">
+                            <div *ngIf="submitted && editUsersForm.controls.password.errors"
+                                class="invalid-feedback d-block">
+                                <div *ngIf="editUsersForm.controls.password.errors.required">Ce champ doit être rempli
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                        <button class="btn btn-info" (click)="editUser(idEdit)">Enregistrer</button>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Delete Modal HTML -->
+<div id="deleteUserModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h4 class="modal-title">Supprimer Utilisateur</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>êtes-vous sûr de vouloir supprimer cet utilisateur?</p>
+                    <p class="text-warning"><small>Cette action ne peut pas être annulée.</small></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                    <button class="btn btn-danger" (click)="deleteUser(idDelete)">Supprimer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
