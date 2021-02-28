@@ -6,4 +6,4 @@ $(document).ready(function () {
 		}, function () {
 			$(this).find('.sm-menu').first().stop(true, true).slideUp(105)
 		});
-	});
+	}); 

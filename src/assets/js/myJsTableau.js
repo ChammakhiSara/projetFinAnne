@@ -1,4 +1,4 @@
-// code js du composant agences
+// code js du composant agences-users
 // je dois importer $ pour qu'il voir la bibliotheque jquery ajouté si nn le projet ne demarre pas 
 import $ from 'jquery';
 $(document).ready(function(){

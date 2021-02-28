@@ -1,37 +1,76 @@
 .navbar{
-    background: #43c7ba !important;
+    background: #0298b1 !important;
+    /* faire un petit espace à gauche et à droite de navbar */
     padding-left: 40px;
-    padding-left: 40px;
+    padding-right: 40px;
 }
 .navbar-brand img{
-    width: 80px;
+    width: 70px;
 }
 .dropdown{
     border-radius:0;
     border:0;
 }
 .dropdown-menu{
-    background: #43c7ba;
+    background-color: #0298b1;
+    color: #fff;
     border:0;
     top:80%;
     border-radius:0px 0px 5px 5px;
+    padding: .5rem 1rem;
+    font-size: .9rem;
+    align-items: center;
+    transition: .3s;
+}
+.dropdown-item{
+    background-color:#0298b1;
+    color:#fff;
 }
 .dropdown-item:hover{
-    background:#085ca5;
-    color:#fff;
+    background-color:#fff;
+    color:#0298b1;
 }
+.dropdown-menu a:hover{
+    color:#0298b1;
+} 
 .dropdown-menu a{
     color:#fff;
+    display: flex;
+    padding: .5rem 1rem;
+    font-size: .9rem;
+    align-items: center;
+    transition: .3s;
 } 
 .navbar .nav-item .nav-link{
     color:#eee !important; 
-    
+    line-height: 3rem;
+    padding: 0 .8rem;
+    letter-spacing: 1px;
+    font-size: .95rem;
+    display: flex;
+    align-items: center;
+    transition: .5s;    
 }
-.navbar .nav-item .nav-link:hover .navbar .nav-item .nav-link{
-    color:red !important;
-    
+.nav-link:hover{
+    transform: scale(1.1);
 }
-.banner{
-    padding-left: 40px;
-    padding-right: 40px;
+.btn{
+    display: inline-block;
+    padding: .5rem 1.3rem;
+    font-size: .8rem;
+    border: 2px solid #fff;
+    border-radius: 2rem;
+    line-height: 1;
+    margin: 0 .2rem;
+    transition: .3s;   
 }
+.btn.solid, .btn.transparent:hover{
+    background-color: #fff;
+    color: #0298b1;
+}
+.btn.transparent, .btn.solid:hover{
+    background-color: transparent;
+    color: #fff;
+}
+
+
