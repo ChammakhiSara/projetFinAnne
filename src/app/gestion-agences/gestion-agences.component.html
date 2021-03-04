@@ -70,7 +70,8 @@
                         <label>Nom</label>
                         <input type="text" id="name" formControlName="nom" class="form-control"
                             [ngClass]="{'is-invalid': submitted && addAgencesForm.controls.nom.errors, 'is-valid': submitted &&  !addAgencesForm.controls.nom.errors}">
-                        <div *ngIf="submitted && addAgencesForm.controls.nom.errors" class="invalid-feedback d-block">
+                        <div *ngIf="submitted && addAgencesForm.controls.nom.errors" 
+                        class="invalid-feedback d-block">
                             <div *ngIf="addAgencesForm.controls.nom.errors.required">Ce champ doit être rempli</div>
 
                         </div>
@@ -116,7 +117,8 @@
                         <label>Nom</label>
                         <input type="text" id="name1" formControlName="nom" class="form-control"
                             [ngClass]="{'is-invalid': submitted && editAgencesForm.controls.nom.errors, 'is-valid': submitted &&  !editAgencesForm.controls.nom.errors}">
-                        <div *ngIf="submitted && editAgencesForm.controls.nom.errors" class="invalid-feedback d-block">
+                        <div *ngIf="submitted && editAgencesForm.controls.nom.errors" 
+                        class="invalid-feedback d-block">
                             <div *ngIf="editAgencesForm.controls.nom.errors.required">Ce champ doit être rempli</div>
                         </div>
                     </div>

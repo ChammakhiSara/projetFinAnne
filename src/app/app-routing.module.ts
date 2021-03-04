@@ -2,14 +2,19 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { GestionAgencesComponent } from './gestion-agences/gestion-agences.component';
 import { GestionUsersComponent } from './gestion-users/gestion-users.component';
+import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 
 const routes: Routes = [
   {
     path:'',
-    redirectTo: 'gestion-agences',
+    redirectTo: 'login',
     pathMatch: 'full'
+  },
+  {
+    path:'login',
+    component: LoginComponent
   },
   {
     path:'navbar',
