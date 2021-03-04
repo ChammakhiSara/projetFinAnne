@@ -8,6 +8,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   
@@ -18,7 +19,17 @@
   
 </body> 
 </html>
-<script src="./assets/js/myJsNavbar.js"></script>
+<!-- c'est le script de fichier js du navbar -->
+<script>
+  $(document).ready(function () {
+	$('.navbar-light .dmenu').hover(function () {
+			$(this).find('.sm-menu').first().stop(true, true).slideDown(150);
+		}, function () {
+			$(this).find('.sm-menu').first().stop(true, true).slideUp(105)
+		});
+	}); 
+</script>
+
 <script src="./assets/js/myJsTableau.js"></script>
 
 

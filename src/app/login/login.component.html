@@ -1,0 +1,28 @@
+<section>
+	<div class="form-container">
+		<h1>Retech solutions</h1>
+		<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+			<div class="control">
+				<label for="username">Nom d'utilisateur:</label>
+				<input type="text" class="form-control" formControlName="username">
+				<div class="invalid-feedback d-block"
+					*ngIf="loginForm.controls['username'].hasError('required') && loginForm.controls['username'].touched">
+					Le Nom d'utilisateur doit être ajouter</div>
+			</div>
+			<div class="control">
+				<label for="psw">Mot de passe:</label>
+				<input type="password" class="form-control" formControlName="password">
+                <div class="invalid-feedback d-block"
+                    *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">
+                    Le Mot de passe doit être ajouter</div>
+			</div>
+			<br>
+			<div class="control">
+				<button class="btn" [disabled]="loginForm.invalid">S'authentifier</button>
+            <div *ngIf="invalidLogin">
+                <div class="invalid-feedback d-block">Merci de verifier votre Nom d'utilisateur ou bien votre Mot de passe</div>
+			</div>
+			</div>
+		</form>
+	</div>
+</section>

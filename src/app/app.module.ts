@@ -10,6 +10,7 @@ import { AgenceServiceService } from './services/agence-service.service';
 import { UserServiceService } from './services/user-service.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { GestionUsersComponent } from './gestion-users/gestion-users.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { GestionUsersComponent } from './gestion-users/gestion-users.component';
     GestionAgencesComponent,
     NavbarComponent,
     GestionUsersComponent,
+    LoginComponent,
     
   ],
   imports: [
