@@ -7,20 +7,20 @@
 				<input type="text" class="form-control" formControlName="username">
 				<div class="invalid-feedback d-block"
 					*ngIf="loginForm.controls['username'].hasError('required') && loginForm.controls['username'].touched">
-					Le Nom d'utilisateur doit être ajouter</div>
+					Le Nom d'utilisateur doit être ajouté</div>
 			</div>
 			<div class="control">
 				<label for="psw">Mot de passe:</label>
 				<input type="password" class="form-control" formControlName="password">
                 <div class="invalid-feedback d-block"
                     *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">
-                    Le Mot de passe doit être ajouter</div>
+                    Le Mot de passe doit être ajouté</div>
 			</div>
 			<br>
 			<div class="control">
 				<button class="btn" [disabled]="loginForm.invalid">S'authentifier</button>
             <div *ngIf="invalidLogin">
-                <div class="invalid-feedback d-block">Merci de verifier votre Nom d'utilisateur ou bien votre Mot de passe</div>
+                <div class="invalid-feedback d-block">Merci de vérifier votre Nom d'utilisateur ou bien votre Mot de passe</div>
 			</div>
 			</div>
 		</form>
