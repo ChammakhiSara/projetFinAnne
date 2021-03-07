@@ -8,9 +8,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AgenceServiceService } from './services/agence-service.service';
 import { UserServiceService } from './services/user-service.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { GestionUsersComponent } from './gestion-users/gestion-users.component';
 import { LoginComponent } from './login/login.component';
+import { BOMComponent } from './bom/bom.component';
+import { StockTotaleComponent } from './stock-totale/stock-totale.component';
+import { StockTunisComponent } from './stock-tunis/stock-tunis.component';
+import { StockSousseComponent } from './stock-sousse/stock-sousse.component';
+import { StockSfaxComponent } from './stock-sfax/stock-sfax.component';
+import { BOMService } from './services/bom.service';
+import { StockTotaleService } from './services/stock-totale.service';
+import { StockTunisService } from './services/stock-tunis.service';
+import { StockSfaxService } from './services/stock-sfax.service';
+import { StockSousseService } from './services/stock-sousse.service';
 
 @NgModule({
   declarations: [
@@ -19,6 +29,11 @@ import { LoginComponent } from './login/login.component';
     NavbarComponent,
     GestionUsersComponent,
     LoginComponent,
+    BOMComponent,
+    StockTotaleComponent,
+    StockTunisComponent,
+    StockSousseComponent,
+    StockSfaxComponent,
     
   ],
   imports: [
@@ -28,7 +43,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [AgenceServiceService, UserServiceService],
+  providers: [AgenceServiceService, UserServiceService, BOMService, StockTotaleService, StockTunisService, StockSfaxService, StockSousseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

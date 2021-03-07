@@ -78,8 +78,8 @@
                     </div>
                     <div class="form-group">
                         <label>Adresse</label>
-                        <input type="text" id="address" formControlName="adresse" class="form-control"
-                            [ngClass]="{'is-invalid': submitted && addAgencesForm.controls.adresse.errors, 'is-valid': submitted &&  !addAgencesForm.controls.adresse.errors}">
+                        <textarea id="address" formControlName="adresse" class="form-control"
+                            [ngClass]="{'is-invalid': submitted && addAgencesForm.controls.adresse.errors, 'is-valid': submitted &&  !addAgencesForm.controls.adresse.errors}"></textarea>
                         <div *ngIf="submitted && addAgencesForm.controls.adresse.errors"
                             class="invalid-feedback d-block">
                             <div *ngIf="addAgencesForm.controls.adresse.errors.required">Ce champ doit être rempli</div>
