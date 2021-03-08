@@ -13,19 +13,19 @@
         <a class="nav-link" href="#"><strong>ACCUEIL </strong></a>
       </li>
       <li routerLinkActive="active current" class="nav-item">
-        <a class="nav-link" href="#">BOM</a>
+        <a routerLink="BOM" class="nav-link">BOM</a>
       </li>
       <li routerLinkActive="active current" class="nav-item">
-        <a class="nav-link" href="#">STOCK TOTALE</a>
+        <a routerLink="stock-totale" class="nav-link" href="#">STOCK TOTALE</a>
       </li>
       <li routerLinkActive="active current" class="nav-item dropdown dmenu">
-        <a routerLinkclass="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           STOCK LOCALE
         </a>
         <div class="dropdown-menu sm-menu">
-          <a class="dropdown-item" href="#">Tunis</a>
-          <a class="dropdown-item" href="#">Sousse</a>
-          <a class="dropdown-item" href="#">Sfax</a>
+          <a routerLink="stock-tunis" class="dropdown-item">Tunis</a>
+          <a routerLink="stock-sousse" class="dropdown-item">Sousse</a>
+          <a routerLink="stock-sfax" class="dropdown-item">Sfax</a>
         </div>
       </li>
       <li routerLinkActive="active current" class="nav-item dropdown dmenu">
@@ -33,8 +33,8 @@
           ADMIN
         </a>
         <div class="dropdown-menu sm-menu">
-          <a class="dropdown-item" href="#">Gestion agences</a>
-          <a class="dropdown-item" href="#">Gestion utilisateurs</a>
+          <a routerLink="gestion-agences" class="dropdown-item">Gestion agences</a>
+          <a routerLink="gestion-users" class="dropdown-item">Gestion utilisateurs</a>
         </div>
       </li>
     </ul>
