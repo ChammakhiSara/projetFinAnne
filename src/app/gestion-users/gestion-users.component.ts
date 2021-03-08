@@ -54,8 +54,10 @@ export class GestionUsersComponent implements OnInit {
     }
     else {
       let user = this.addUsersForm.value;
+      // stocker l'agence id depuis le formulaire
       let a = user.agence;
       console.log(a);
+      // mettre l'agenceid null du user pour avoir le format correct du url requete de l'api backend spring add user
       user.agence = null;
       console.log(user);
       let response = this.service.addUser(user ,a );
