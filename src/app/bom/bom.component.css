@@ -150,7 +150,21 @@
     table.table td a.view i {
         font-size: 22px;
 		margin: 2px 0 0 1px;
-    }   
+    }
+	/*my modification css rendre les couleurs du tableau ligne par ligne différents
+	.styled-table thead tr {
+		background-color: #009879;
+		color: #ffffff;
+		text-align: left;
+	}
+	.styled-table tbody tr {
+		border-bottom: 1px solid #dddddd;
+	}
+	
+	.styled-table tbody tr:nth-of-type(even) {
+		background-color: #c00a0a;
+	} 
+	/************************/
     .pagination {
         float: right;
         margin: 0 0 5px;

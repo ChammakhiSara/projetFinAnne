@@ -3,14 +3,21 @@
     <div class="table-wrapper">
         <div class="table-title">
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <h2>BOM <b>détails</b></h2>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-4">
                     <!-- c'est comment je peux faire l'input type "file" avec icon -->
                     <label class="btn btn-info">
                         <i class="material-icons">&#xE24D;</i>Importer le dernier BOM<input type="file" style="display: none;"
-                            name="file">
+                            name="file" (change)="onFileChanged($event)">
+                    </label>
+                </div>
+                <div class="col-sm-2">
+                    <!-- Enregistrement du fichier avec icon -->
+                    <label class="btn btn-info">
+                        <i class="material-icons">&#xe171;</i>Enregistrer<input type="button" style="display: none;"
+                            name="file"(click)="onUpload()">
                     </label>
                 </div>
             </div>
@@ -38,7 +45,7 @@
                 </div>
             </div>
         </div>
-        <table class="table table-striped table-hover table-bordered">
+        <table class="table table-striped table-hover table-bordered styled-table">
             <!-- "table-bordered"  idha 7abit nrodou msater tableau-->
             <thead>
                 <tr>
@@ -54,14 +61,14 @@
             </thead>
             <tbody>
                 <tr *ngFor="let bom of BOM">
-                    <td>{{bom.Code}}</td>
-                    <td>{{bom.SAP_Code}}</td>
-                    <td>{{bom.Brand}}</td>
-                    <td>{{bom.Model}}</td>
-                    <td>{{bom.Color}}</td>
-                    <td>{{bom.Material_Description}}</td>
-                    <td>{{bom.BOM_Level}}</td>
-                    <td>{{bom.Component_Description}}</td>
+                    <td>{{bom.code}}</td>
+                    <td>{{bom.sap_Code}}</td>
+                    <td>{{bom.brand}}</td>
+                    <td>{{bom.model}}</td>
+                    <td>{{bom.color}}</td>
+                    <td>{{bom.materialdescriptionEnglish}}</td>
+                    <td>{{bom.bomlevel}}</td>
+                    <td>{{bom.componentdescriptionEnglish}}</td>
                 </tr>
             </tbody>
         </table>
