@@ -8,17 +8,18 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#"><strong>ACCUEIL </strong><span class="sr-only">(current)</span></a>
+      <!-- the routerLinkActive make the current page on (click) active -->
+      <li routerLinkActive="active current" class="nav-item">
+        <a class="nav-link" href="#"><strong>ACCUEIL </strong></a>
       </li>
-      <li class="nav-item">
+      <li routerLinkActive="active current" class="nav-item">
         <a class="nav-link" href="#">BOM</a>
       </li>
-      <li class="nav-item">
+      <li routerLinkActive="active current" class="nav-item">
         <a class="nav-link" href="#">STOCK TOTALE</a>
       </li>
-      <li class="nav-item dropdown dmenu">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li routerLinkActive="active current" class="nav-item dropdown dmenu">
+        <a routerLinkclass="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           STOCK LOCALE
         </a>
         <div class="dropdown-menu sm-menu">
@@ -27,7 +28,7 @@
           <a class="dropdown-item" href="#">Sfax</a>
         </div>
       </li>
-      <li class="nav-item dropdown dmenu">
+      <li routerLinkActive="active current" class="nav-item dropdown dmenu">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           ADMIN
         </a>
