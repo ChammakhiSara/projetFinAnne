@@ -5,6 +5,10 @@ import { GestionAgencesComponent } from './gestion-agences/gestion-agences.compo
 import { GestionUsersComponent } from './gestion-users/gestion-users.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { StockSfaxComponent } from './stock-sfax/stock-sfax.component';
+import { StockSousseComponent } from './stock-sousse/stock-sousse.component';
+import { StockTotaleComponent } from './stock-totale/stock-totale.component';
+import { StockTunisComponent } from './stock-tunis/stock-tunis.component';
 
 
 const routes: Routes = [
@@ -32,6 +36,22 @@ const routes: Routes = [
   {
     path:'BOM',
     component: BOMComponent
+  },
+  {
+    path:'stock-totale',
+    component: StockTotaleComponent
+  },
+  {
+    path:'stock-tunis',
+    component: StockTunisComponent
+  },
+  {
+    path:'stock-sfax',
+    component: StockSfaxComponent
+  },
+  {
+    path:'stock-sousse',
+    component: StockSousseComponent
   },
 ];
 
