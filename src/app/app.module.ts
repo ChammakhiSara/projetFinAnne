@@ -21,6 +21,7 @@ import { StockTotaleService } from './services/stock-totale.service';
 import { StockTunisService } from './services/stock-tunis.service';
 import { StockSfaxService } from './services/stock-sfax.service';
 import { StockSousseService } from './services/stock-sousse.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -35,13 +36,15 @@ import { StockSousseService } from './services/stock-sousse.service';
     StockSousseComponent,
     StockSfaxComponent,
     
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [AgenceServiceService, UserServiceService, BOMService, StockTotaleService, StockTunisService, StockSfaxService, StockSousseService],
   bootstrap: [AppComponent]

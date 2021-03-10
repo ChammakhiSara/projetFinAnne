@@ -9,6 +9,7 @@ import { BOMService } from '../services/bom.service';
 export class BOMComponent implements OnInit {
 
   BOM: any;
+  p :number=1;
   selectedFile: File;
 
 
@@ -29,7 +30,7 @@ export class BOMComponent implements OnInit {
     uploadImageData.append('file', this.selectedFile, this.selectedFile.name);
     let res = this.service.uploadBomToBackend(uploadImageData);
     let msg :any;
-    res.subscribe((data)=> msg =data);
+    res.subscribe((data)=> msg = data);
   }
     
 
@@ -38,6 +39,8 @@ export class BOMComponent implements OnInit {
   ngOnInit(): void {
     let response = this.service.getBOM();
     response.subscribe((data) => this.BOM = data);
+    console.log(this.BOM);
+    
   }  
  
 }

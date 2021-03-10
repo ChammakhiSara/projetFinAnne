@@ -17,9 +17,9 @@ export class BOMService {
 
   }
 
-  // get all table BOM from backend
+  // get bom data from backend
   public getBOM(){
-    return this.http.get("http://localhost:8080/bom/");
+    return this.http.get("http://localhost:8080/bom/?page=");
   }
 
 }

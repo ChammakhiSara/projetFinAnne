@@ -49,6 +49,7 @@
             <!-- "table-bordered"  idha 7abit nrodou msater tableau-->
             <thead>
                 <tr>
+                    <th>N°</th>
                     <th>Code</th>
                     <th>SAP_Code</th>
                     <th>Brand</th>
@@ -60,7 +61,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let bom of BOM">
+                <tr *ngFor="let bom of BOM  | paginate: {itemsPerPage:50,currentPage:p}; let i = index">
+                    <td>{{i+1}}</td>
                     <td>{{bom.code}}</td>
                     <td>{{bom.sap_Code}}</td>
                     <td>{{bom.brand}}</td>
@@ -71,19 +73,10 @@
                     <td>{{bom.componentdescriptionEnglish}}</td>
                 </tr>
             </tbody>
+            
         </table>
-        <div class="clearfix">
-            <ul class="pagination">
-                <li class="page-item disabled"><a href="#">Previous</a></li>
-                <li class="page-item"><a href="#" class="page-link">1</a></li>
-                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                <li class="page-item"><a href="#" class="page-link">3</a></li>
-                <li class="page-item active"><a href="#" class="page-link">4</a></li>
-                <li class="page-item"><a href="#" class="page-link">5</a></li>
-                <li class="page-item"><a href="#" class="page-link">6</a></li>
-                <li class="page-item"><a href="#" class="page-link">7</a></li>
-                <li class="page-item"><a href="#" class="page-link">Next</a></li>
-            </ul>
+        <div >
+            <pagination-controls previousLabel="Précédent" nextlabel="Suivant"(pageChange) = "p = $event"></pagination-controls>
         </div>
     </div>
     </div>
