@@ -3,14 +3,21 @@
     <div class="table-wrapper">
         <div class="table-title">
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <h2>Stock <b>Tunis</b></h2>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-4">
                     <!-- c'est comment je peux faire l'input type "file" avec icon -->
                     <label class="btn btn-info">
-                        <i class="material-icons">&#xE24D;</i>Importer le dernier fichier Excel<input type="file" style="display: none;"
-                            name="file">
+                        <i class="material-icons">&#xE24D;</i>Importer le dernier fichier stock tunis<input type="file" style="display: none;"
+                            name="file" (change)="onFileChanged($event)">
+                    </label>
+                </div>
+                <div class="col-sm-2">
+                    <!-- Enregistrement du fichier avec icon -->
+                    <label class="btn btn-info">
+                        <i class="material-icons">&#xe171;</i>Enregistrer<input type="button" style="display: none;"
+                            name="file" (click)="onUpload()">
                     </label>
                 </div>
             </div>
@@ -42,42 +49,38 @@
             <!-- "table-bordered"  idha 7abit nrodou msater tableau-->
             <thead>
                 <tr>
-                    <th>Code</th>
-                    <th>SAP_Code</th>
-                    <th>Brand</th>
-                    <th>Model</th>
-                    <th>Color</th>
-                    <th>Material_Description</th>
-                    <th>BOM_Level</th>
-                    <th>Component_Description</th>
+                    <th>N°</th>
+                    <th>Material Code</th>
+                    <th>Material Description</th>
+                    <th>Serial Number 1</th>
+                    <th>Serial Number 2</th>
+                    <th>Quantity</th>
+                    <th>Store Location</th>
+                    <th>Bin Code</th>
+                    <th>Price</th>
+                    <th>Date</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let stockTun of stockTunis">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                <tr *ngFor="let stockTunis of stockTunisData | paginate: {itemsPerPage:50,currentPage:p}; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{stockTunis.materialCode}}</td>
+                    <td>{{stockTunis.materialDesc}}</td>
+                    <td>{{stockTunis.serialNo1}}</td>
+                    <td>{{stockTunis.serialNo2}}</td>
+                    <td>{{stockTunis.quantity}}</td>
+                    <td>{{stockTunis.storeLocation}}</td>
+                    <td>{{stockTunis.binCode}}</td>
+                    <td>{{stockTunis.price}} dt</td>
+                    <td>{{stockTunis.grndate}}</td>
+                    
                 </tr>
             </tbody>
         </table>
-        <div class="clearfix">
-            <ul class="pagination">
-                <li class="page-item disabled"><a href="#">Previous</a></li>
-                <li class="page-item"><a href="#" class="page-link">1</a></li>
-                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                <li class="page-item"><a href="#" class="page-link">3</a></li>
-                <li class="page-item active"><a href="#" class="page-link">4</a></li>
-                <li class="page-item"><a href="#" class="page-link">5</a></li>
-                <li class="page-item"><a href="#" class="page-link">6</a></li>
-                <li class="page-item"><a href="#" class="page-link">7</a></li>
-                <li class="page-item"><a href="#" class="page-link">Next</a></li>
-            </ul>
+        <div >
+            <pagination-controls previousLabel="Précédent" nextLabel="Suivant"(pageChange) = "p = $event"></pagination-controls>
         </div>
+       
     </div>
     </div>
 </div>

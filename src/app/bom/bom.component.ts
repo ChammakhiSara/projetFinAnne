@@ -21,7 +21,7 @@ export class BOMComponent implements OnInit {
     this.selectedFile = event.target.files[0];
   }
 
-  //Gets called when the user clicks on submit to upload the image
+  //Gets called when the user clicks on enregistrer to upload the image
   onUpload() {
     console.log(this.selectedFile);
     

@@ -4,10 +4,12 @@
 		font-family: 'Varela Round', sans-serif;
 		font-size: 13px;
 	}
+	/*my css modification "sara*/
     .table-responsive {
         margin: 30px 0;
     }
 	.table-wrapper {
+		/*min width added sara*/
 		min-width: 1000px;
         background: #fff;
         padding: 20px 25px;

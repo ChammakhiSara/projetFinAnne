@@ -45,38 +45,37 @@
                 </div>
             </div>
         </div>
-        <table class="table table-striped table-hover table-bordered styled-table">
+        <table class="table table-striped table-hover  styled-table">
             <!-- "table-bordered"  idha 7abit nrodou msater tableau-->
             <thead>
                 <tr>
                     <th>N°</th>
-                    <th>Code</th>
                     <th>SAP_Code</th>
-                    <th>Brand</th>
+                     <th>Brand</th>
                     <th>Model</th>
                     <th>Color</th>
                     <th>Material_Description</th>
-                    <th>BOM_Level</th>
                     <th>Component_Description</th>
+                    <th>Material Group Code</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let bom of BOM  | paginate: {itemsPerPage:50,currentPage:p}; let i = index">
                     <td>{{i+1}}</td>
-                    <td>{{bom.code}}</td>
                     <td>{{bom.sap_Code}}</td>
                     <td>{{bom.brand}}</td>
                     <td>{{bom.model}}</td>
                     <td>{{bom.color}}</td>
                     <td>{{bom.materialdescriptionEnglish}}</td>
-                    <td>{{bom.bomlevel}}</td>
                     <td>{{bom.componentdescriptionEnglish}}</td>
+                    <td>{{bom.materialGroupCode}}</td>
+
                 </tr>
             </tbody>
             
         </table>
         <div >
-            <pagination-controls previousLabel="Précédent" nextlabel="Suivant"(pageChange) = "p = $event"></pagination-controls>
+            <pagination-controls previousLabel="Précédent" nextLabel="Suivant"(pageChange) = "p = $event"></pagination-controls>
         </div>
     </div>
     </div>
