@@ -19,4 +19,12 @@ export class StockSousseService {
   public getStockSousse(){
     return this.http.get("http://localhost:8080/stock/sousse/");
   }
+  // search data with MaterialCode from backend
+  public searchMaterialCode(materialCode){
+    return this.http.get("http://localhost:8080/stock/sousse/materialCode/"+materialCode);
+  }
+  // search  data with MaterialDesc from backend
+  public searchMaterialDesc(materialDesc){
+    return this.http.get("http://localhost:8080/stock/sousse/materialDesc/"+materialDesc);
+  }
 }

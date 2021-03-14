@@ -20,4 +20,12 @@ export class StockSfaxService {
   public getStockSfax(){
     return this.http.get("http://localhost:8080/stock/sfax/");
   }
+  // search data with MaterialCode from backend
+  public searchMaterialCode(materialCode){
+    return this.http.get("http://localhost:8080/stock/sfax/materialCode/"+materialCode);
+  }
+  // search  data with MaterialDesc from backend
+  public searchMaterialDesc(materialDesc){
+    return this.http.get("http://localhost:8080/stock/sfax/materialDesc/"+materialDesc);
+  }
 }

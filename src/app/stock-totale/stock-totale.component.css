@@ -68,7 +68,7 @@ body{
 }
 .table-filter .filter-group {
     float: right;
-    margin-left: 15px;
+    margin-left: 22px;
 }
 .table-filter input, .table-filter select {
     height: 34px;
@@ -93,8 +93,9 @@ body{
     margin-left: 5px;
 }
 .table-filter input {
-    width: 200px;
-    display: inline-block;
+        width: 250px;
+		display: inline-block;
+		text-align: left;
 }
 .filter-group select.form-control {
     width: 110px;

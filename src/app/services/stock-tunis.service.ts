@@ -19,5 +19,14 @@ export class StockTunisService {
   public getStockTunis() {
     return this.http.get("http://localhost:8080/stock/tunis/");
   }
+  // search data with MaterialCode from backend
+  public searchMaterialCode(materialCode){
+    return this.http.get("http://localhost:8080/stock/tunis/materialCode/"+materialCode);
+  }
+  // search  data with MaterialDesc from backend
+  public searchMaterialDesc(materialDesc){
+    return this.http.get("http://localhost:8080/stock/tunis/materialDesc/"+materialDesc);
+  }
+
 
 }

@@ -11,6 +11,8 @@ export class StockTotaleComponent implements OnInit {
   stockTotale: any;
   p: number;
   selectedFile : File;
+  materialName :any;
+  materialCode : any;
 
   constructor(private service: StockTotaleService) { }
   //Gets called when the user selects an image
@@ -30,6 +32,17 @@ export class StockTotaleComponent implements OnInit {
     let msg :any;
     res.subscribe((data)=> msg = data);
   }
+  // search description
+  searchMaterialCode(){
+    let res = this.service.searchMaterialCode(this.materialCode);
+    res.subscribe((data)=> this.stockTotale = data);
+ } 
+ // search description
+ searchMaterialName(){
+  let res = this.service.searchMaterialName(this.materialName);
+  res.subscribe((data)=> this.stockTotale = data);
+} 
+
 
   ngOnInit(): void {
     let response = this.service.getStockTotale();

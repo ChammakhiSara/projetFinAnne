@@ -11,6 +11,9 @@ export class StockSfaxComponent implements OnInit {
   stockSfax: any;
   p: number;
   selectedFile : File;
+  materialCode : any;
+  materialDesc : any;
+
 
   constructor(private service: StockSfaxService) { }
 
@@ -30,6 +33,16 @@ export class StockSfaxComponent implements OnInit {
     let msg :any;
     res.subscribe((data)=> msg = data);
   }
+  // search MaterialCode
+  searchMaterialCode(){
+    let res = this.service.searchMaterialCode(this.materialCode);
+    res.subscribe((data)=> this.stockSfax = data);
+ } 
+ // search MaterialDesc
+ searchMaterialDesc(){
+  let res = this.service.searchMaterialDesc(this.materialDesc);
+  res.subscribe((data)=> this.stockSfax = data);
+} 
 
 
   ngOnInit(): void {

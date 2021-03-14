@@ -14,6 +14,7 @@ export class BOMComponent implements OnInit {
   description: string;
   model : string;
   sap: string;
+  msg : any;  
 
 
 
@@ -29,22 +30,38 @@ export class BOMComponent implements OnInit {
   onUpload() {
     console.log(this.selectedFile);
     
+    
+    
     //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
-    const uploadImageData = new FormData();
-    uploadImageData.append('file', this.selectedFile, this.selectedFile.name);
-    let res = this.service.uploadBomToBackend(uploadImageData);
-    let msg :any;
-    res.subscribe((data)=> msg = data);
-  }
-   // search
-   searchBom(){
-      let res = this.service.searchBOM(this.description, this.model, this.sap);
+    const uploadExcelData = new FormData();
+    uploadExcelData.append('file', this.selectedFile, this.selectedFile.name);
+    let res = this.service.uploadBomToBackend(uploadExcelData);
+    res.subscribe((data)=>console.log(data)
+      
+     );
+    
+    
+   }
+   // search description
+   searchBomDescription(){
+      let res = this.service.searchBOMDescription(this.description);
       res.subscribe((data)=> this.BOM = data);
    } 
+   // search model
+   searchBomModel(){
+    let res = this.service.searchBOMModel(this.model);
+    res.subscribe((data)=> this.BOM = data);
+   } 
+ // search sapCode
+    searchBomSapCode(){
+  let res = this.service.searchBOMSapCode(this.sap);
+  res.subscribe((data)=> this.BOM = data);
+  } 
 
   
 
   ngOnInit(): void {
+    // load the data just when the page displayed
     let response = this.service.getBOM();
     response.subscribe((data) => this.BOM = data);
     console.log(this.BOM);
