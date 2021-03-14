@@ -19,7 +19,12 @@ export class BOMService {
 
   // get bom data from backend
   public getBOM(){
-    return this.http.get("http://localhost:8080/bom/?page=");
+    return this.http.get("http://localhost:8080/bom/");
   }
+  // get bom data from backend
+  public searchBOM(description, model , sap){
+    return this.http.get("http://localhost:8080/bom/"+description+"/"+model+"/"+sap);
+  }
+
 
 }

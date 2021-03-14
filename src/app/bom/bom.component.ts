@@ -11,6 +11,10 @@ export class BOMComponent implements OnInit {
   BOM: any;
   p :number=1;
   selectedFile: File;
+  description: string;
+  model : string;
+  sap: string;
+
 
 
   constructor(private service: BOMService) { }
@@ -32,7 +36,11 @@ export class BOMComponent implements OnInit {
     let msg :any;
     res.subscribe((data)=> msg = data);
   }
-    
+   // search
+   searchBom(){
+      let res = this.service.searchBOM(this.description, this.model, this.sap);
+      res.subscribe((data)=> this.BOM = data);
+   } 
 
   
 

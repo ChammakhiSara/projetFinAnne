@@ -68,11 +68,13 @@
         width: 60px;
 		margin: 0 5px;
 	}
+	/*changed space between search inputs*/
 	.table-filter .filter-group {
         float: right;
-		margin-left: 15px;
+		margin-left: 22px;
     }
-	.table-filter input, .table-filter select {
+	.table-filter input {
+		
 		height: 34px;
 		border-radius: 3px;
 		border-color: #ddd;
@@ -94,9 +96,11 @@
 		display: inline-block;
 		margin-left: 5px;
 	}
+	/*changed input width*/
 	.table-filter input {
-		width: 200px;
+		width: 250px;
 		display: inline-block;
+		text-align: left;
 	}
 	.filter-group select.form-control {
 		width: 110px;
