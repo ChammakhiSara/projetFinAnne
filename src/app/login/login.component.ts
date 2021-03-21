@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -10,18 +12,34 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   invalidLogin: boolean = false;
-
-  constructor() { }
+  
+  constructor(private router: Router,
+    private authenticationservice: AuthenticationService) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       username: new FormControl ('', [Validators.required]),
-      password: new FormControl ('', [Validators.required])
+      motDePasse: new FormControl ('', [Validators.required])
     });
   }
   
   onSubmit(){
-    let users = JSON.parse(localStorage.getItem('users')) || [];
+    let loginRequest = this.loginForm.value;
+    (this.authenticationservice.authenticate(loginRequest).subscribe(
+      data => {
+        this.router.navigate(['BOM'])
+        this.invalidLogin = false
+      },
+      error => {
+        this.invalidLogin = true
+
+      }
+    )
+    );
+
+
+
+   /* let users = JSON.parse(localStorage.getItem('users')) || [];
 
     let username = this.loginForm.controls.username.value;
     let password = this.loginForm.controls.password.value;
@@ -32,7 +50,7 @@ export class LoginComponent implements OnInit {
       // this.router.navigateByUrl('liste-users');
     }else {
         this.invalidLogin = true;
-      } 
+      } */
 
   }
 }

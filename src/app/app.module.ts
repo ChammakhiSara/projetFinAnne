@@ -8,7 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AgenceServiceService } from './services/agence-service.service';
 import { UserServiceService } from './services/user-service.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GestionUsersComponent } from './gestion-users/gestion-users.component';
 import { LoginComponent } from './login/login.component';
 import { BOMComponent } from './bom/bom.component';
@@ -22,6 +22,9 @@ import { StockTunisService } from './services/stock-tunis.service';
 import { StockSfaxService } from './services/stock-sfax.service';
 import { StockSousseService } from './services/stock-sousse.service';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { JwtAuthHtppInterceptorService } from './jwt-auth-htpp-interceptor.service';
+import { AuthenticationService } from './authentication.service';
+import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HttpClientModule,
     NgxPaginationModule
   ],
-  providers: [AgenceServiceService, UserServiceService, BOMService, StockTotaleService, StockTunisService, StockSfaxService, StockSousseService],
+  providers: [AgenceServiceService, UserServiceService, BOMService, StockTotaleService, StockTunisService, StockSfaxService, StockSousseService,AuthenticationService,AuthGuardService,JwtAuthHtppInterceptorService,{  
+    provide:HTTP_INTERCEPTORS, useClass:JwtAuthHtppInterceptorService, multi:true 
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

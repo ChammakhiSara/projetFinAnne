@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuardService } from './auth-guard.service';
 import { BOMComponent } from './bom/bom.component';
 import { GestionAgencesComponent } from './gestion-agences/gestion-agences.component';
 import { GestionUsersComponent } from './gestion-users/gestion-users.component';
@@ -23,35 +24,35 @@ const routes: Routes = [
   },
   {
     path:'navbar',
-    component: NavbarComponent
+    component: NavbarComponent,canActivate:[AuthGuardService]
   },
   {
     path:'gestion-agences',
-    component: GestionAgencesComponent
+    component: GestionAgencesComponent,canActivate:[AuthGuardService]
   },
   {
     path:'gestion-users',
-    component: GestionUsersComponent
+    component: GestionUsersComponent,canActivate:[AuthGuardService]
   },
   {
     path:'BOM',
-    component: BOMComponent
+    component: BOMComponent,canActivate:[AuthGuardService]
   },
   {
     path:'stock-totale',
-    component: StockTotaleComponent
+    component: StockTotaleComponent,canActivate:[AuthGuardService]
   },
   {
     path:'stock-tunis',
-    component: StockTunisComponent
+    component: StockTunisComponent,canActivate:[AuthGuardService]
   },
   {
     path:'stock-sfax',
-    component: StockSfaxComponent
+    component: StockSfaxComponent,canActivate:[AuthGuardService]
   },
   {
     path:'stock-sousse',
-    component: StockSousseComponent
+    component: StockSousseComponent,canActivate:[AuthGuardService]
   },
 ];
 

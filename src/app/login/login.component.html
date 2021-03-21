@@ -11,9 +11,9 @@
 			</div>
 			<div class="control">
 				<label for="psw">Mot de passe:</label>
-				<input type="password" class="form-control" formControlName="password">
+				<input type="password" class="form-control" formControlName="motDePasse">
                 <div class="invalid-feedback d-block"
-                    *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">
+                    *ngIf="loginForm.controls['motDePasse'].hasError('required') && loginForm.controls['motDePasse'].touched">
                     Le Mot de passe doit être ajouté</div>
 			</div>
 			<br>
