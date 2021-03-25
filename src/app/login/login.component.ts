@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     let loginRequest = this.loginForm.value;
     (this.authenticationservice.authenticate(loginRequest).subscribe(
       data => {
-        this.router.navigate(['BOM'])
+        this.router.navigate(['/navbar/BOM'])
         this.invalidLogin = false
       },
       error => {

@@ -8,10 +8,15 @@ import { AuthenticationService } from '../authentication.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+   user :any;
+  
   constructor(private authenticationService: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
+    this.user = sessionStorage.getItem('username');
+   console.log(this.user);
+   
+   
   }
 
   LogOut(){

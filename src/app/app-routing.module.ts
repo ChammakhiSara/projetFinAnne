@@ -24,36 +24,39 @@ const routes: Routes = [
   },
   {
     path:'navbar',
-    component: NavbarComponent,canActivate:[AuthGuardService]
-  },
-  {
-    path:'gestion-agences',
-    component: GestionAgencesComponent,canActivate:[AuthGuardService]
-  },
-  {
-    path:'gestion-users',
-    component: GestionUsersComponent,canActivate:[AuthGuardService]
-  },
-  {
-    path:'BOM',
-    component: BOMComponent,canActivate:[AuthGuardService]
-  },
-  {
-    path:'stock-totale',
-    component: StockTotaleComponent,canActivate:[AuthGuardService]
-  },
-  {
-    path:'stock-tunis',
-    component: StockTunisComponent,canActivate:[AuthGuardService]
-  },
-  {
-    path:'stock-sfax',
-    component: StockSfaxComponent,canActivate:[AuthGuardService]
-  },
-  {
-    path:'stock-sousse',
-    component: StockSousseComponent,canActivate:[AuthGuardService]
-  },
+    component: NavbarComponent,canActivate:[AuthGuardService],
+    children: [
+      {
+        path:'gestion-agences',
+        component: GestionAgencesComponent,canActivate:[AuthGuardService]
+      },
+      {
+        path:'gestion-users',
+        component: GestionUsersComponent,canActivate:[AuthGuardService]
+      },
+      {
+        path:'BOM',
+        component: BOMComponent,canActivate:[AuthGuardService]
+      },
+      {
+        path:'stock-totale',
+        component: StockTotaleComponent,canActivate:[AuthGuardService]
+      },
+      {
+        path:'stock-tunis',
+        component: StockTunisComponent,canActivate:[AuthGuardService]
+      },
+      {
+        path:'stock-sfax',
+        component: StockSfaxComponent,canActivate:[AuthGuardService]
+      },
+      {
+        path:'stock-sousse',
+        component: StockSousseComponent,canActivate:[AuthGuardService]
+      }
+    ]
+  }
+ 
 ];
 
 @NgModule({

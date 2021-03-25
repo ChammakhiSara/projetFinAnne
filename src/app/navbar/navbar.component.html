@@ -10,22 +10,22 @@
     <ul class="navbar-nav mr-auto">
       <!-- the routerLinkActive make the current page on (click) active -->
       <li routerLinkActive="active current" class="nav-item">
-        <a class="nav-link" href="#"><strong>ACCUEIL </strong></a>
+        <a class="nav-link" ><strong>ACCUEIL </strong></a>
       </li>
       <li routerLinkActive="active current" class="nav-item">
-        <a routerLink="BOM" class="nav-link">BOM</a>
+        <a  [routerLink]="['/navbar/BOM']" class="nav-link">BOM</a>
       </li>
       <li routerLinkActive="active current" class="nav-item">
-        <a routerLink="stock-totale" class="nav-link" href="#">STOCK TOTALE</a>
+        <a [routerLink]="['/navbar/stock-totale']" class="nav-link" >STOCK TOTALE</a>
       </li>
       <li routerLinkActive="active current" class="nav-item dropdown dmenu">
         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           STOCK LOCALE
         </a>
         <div class="dropdown-menu sm-menu">
-          <a routerLink="stock-tunis" class="dropdown-item">Tunis</a>
-          <a routerLink="stock-sousse" class="dropdown-item">Sousse</a>
-          <a routerLink="stock-sfax" class="dropdown-item">Sfax</a>
+          <a [routerLink]="['/navbar/stock-tunis']" class="dropdown-item">Tunis</a>
+          <a [routerLink]="['/navbar/stock-sousse']" class="dropdown-item">Sousse</a>
+          <a [routerLink]="['/navbar/stock-sfax']" class="dropdown-item">Sfax</a>
         </div>
       </li>
       <li routerLinkActive="active current" class="nav-item dropdown dmenu">
@@ -33,17 +33,19 @@
           ADMIN
         </a>
         <div class="dropdown-menu sm-menu">
-          <a routerLink="gestion-agences" class="dropdown-item">Gestion agences</a>
-          <a routerLink="gestion-users" class="dropdown-item">Gestion utilisateurs</a>
+          <a [routerLink]="['/navbar/gestion-agences']" class="dropdown-item">Gestion agences</a>
+          <a [routerLink]="['/navbar/gestion-users']" class="dropdown-item">Gestion utilisateurs</a>
         </div>
       </li>
     </ul>
     
     <hr>
 
-     <div><a  class="btn solid">User</a></div>
+     <div><a  class="btn solid">{{user}}</a></div>
      <br>
      <div><button class="btn transparent" (click)="LogOut()">Déconnexion</button></div>
 
   </div>
 </nav>
+<!--Any content under the parent component navbar-->
+<router-outlet></router-outlet>
