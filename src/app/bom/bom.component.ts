@@ -12,9 +12,8 @@ export class BOMComponent implements OnInit {
   p :number=1;
   selectedFile: File;
   description: string;
-  model : string;
-  sap: string;
-  msg : any;  
+  searchText: any;
+   
 
 
 
@@ -29,9 +28,7 @@ export class BOMComponent implements OnInit {
   //Gets called when the user clicks on enregistrer to upload the image
   onUpload() {
     console.log(this.selectedFile);
-    
-    
-    
+
     //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
     const uploadExcelData = new FormData();
     uploadExcelData.append('file', this.selectedFile, this.selectedFile.name);
@@ -39,24 +36,22 @@ export class BOMComponent implements OnInit {
     res.subscribe((data)=>console.log(data)
       
      );
-    
-    
    }
-   // search description
-   searchBomDescription(){
-      let res = this.service.searchBOMDescription(this.description);
-      res.subscribe((data)=> this.BOM = data);
-   } 
-   // search model
-   searchBomModel(){
-    let res = this.service.searchBOMModel(this.model);
-    res.subscribe((data)=> this.BOM = data);
-   } 
- // search sapCode
-    searchBomSapCode(){
-  let res = this.service.searchBOMSapCode(this.sap);
-  res.subscribe((data)=> this.BOM = data);
-  } 
+//    // search description
+//    searchBomDescription(){
+//       let res = this.service.searchBOMDescription(this.description);
+//       res.subscribe((data)=> this.BOM = data);
+//    } 
+//    // search model
+//    searchBomModel(){
+//     let res = this.service.searchBOMModel(this.model);
+//     res.subscribe((data)=> this.BOM = data);
+//    } 
+//  // search sapCode
+//     searchBomSapCode(){
+//   let res = this.service.searchBOMSapCode(this.sap);
+//   res.subscribe((data)=> this.BOM = data);
+//   } 
 
   
 

@@ -15,16 +15,17 @@ export class StockTotaleService {
        
  
    }
-   // get all table stock totale from backend
+   // load stock totale with models
    public getStockTotale(){
-    return this.http.get("http://localhost:8080/stock/country/");
+    return this.http.get("http://localhost:8080/stockWithModels/countrystock/");
   }
-  // search bom data with description from backend
-  public searchMaterialCode(materialCode){
-    return this.http.get("http://localhost:8080/stock/country/materialCode/"+materialCode);
-  }
-   // search bom data with description from backend
-   public searchMaterialName(materialName){
-    return this.http.get("http://localhost:8080/stock/country/materialName/"+materialName);
-  }
+
+  // // search bom data with description from backend
+  // public searchMaterialCode(materialCode){
+  //   return this.http.get("http://localhost:8080/stock/country/materialCode/"+materialCode);
+  // }
+  //  // search bom data with description from backend
+  //  public searchMaterialName(materialName){
+  //   return this.http.get("http://localhost:8080/stock/country/materialName/"+materialName);
+  // }
 }

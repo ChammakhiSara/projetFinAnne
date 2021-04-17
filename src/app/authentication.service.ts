@@ -22,9 +22,9 @@ export class AuthenticationService {
     return this.httpClient.post<any>('http://localhost:8080/auth/login',loginRequest).pipe(
      map(
        userData => {
-        sessionStorage.setItem('username',loginRequest.username);
+        localStorage.setItem('username',loginRequest.username);
         let tokenStr= 'Bearer '+userData.token;
-        sessionStorage.setItem('token', tokenStr);
+        localStorage.setItem('token', tokenStr);
         return userData;
        }
      )
@@ -34,12 +34,12 @@ export class AuthenticationService {
 
 
 isUserLoggedIn() {
-  let user = sessionStorage.getItem('username')
+  let user = localStorage.getItem('username')
   //return true if user not null
   return !(user === null)
 }
 
 logOut() {
-  sessionStorage.removeItem('username');
+  localStorage.removeItem('username');
 }
 }

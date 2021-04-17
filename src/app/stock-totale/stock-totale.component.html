@@ -26,15 +26,9 @@
             <div class="row">
                 
                 <div class="col-sm-12">
-                    <button type="button" class="btn btn-primary"><i class="fa fa-search" (click)=" searchMaterialCode()"></i></button>
                     <div class="filter-group">
-                        <input type="text" class="form-control" placeholder="Material code" [(ngModel)]="materialCode">
+                        <input type="search" class="form-control" placeholder="Rechercher" [(ngModel)]="searchText">
                     </div>
-                    <button type="button" class="btn btn-primary"><i class="fa fa-search"(click)=" searchMaterialName()"></i></button>
-                    <div class="filter-group">
-                        <input type="text" class="form-control" placeholder="Material name" [(ngModel)]="materialName">
-                    </div>
-                  
                 </div>
             </div>
         </div>
@@ -46,17 +40,19 @@
                     <th>Plant Name</th>
                     <th>Customer Name</th>
                     <th>Material Code</th>
+                    <th>Models</th>
                     <th>Material Name</th>
                     <th>Store Name</th>
                     <th>Actual quantity</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let stockTotal of stockTotale | paginate: {itemsPerPage:50,currentPage:p}; let i = index">
+                <tr *ngFor="let stockTotal of stockTotale| searchCountryStock: searchText | paginate: {itemsPerPage:50,currentPage:p}; let i = index">
                     <td>{{i}}</td>
                     <td>{{stockTotal.plantName}}</td>
                     <td>{{stockTotal.customerName}}</td>
                     <td>{{stockTotal.materialCode}}</td>
+                    <td>{{stockTotal.models}}</td>
                     <td>{{stockTotal.materialName}}</td>
                     <td>{{stockTotal.storeName}}</td>
                     <td>{{stockTotal.actualSQty}}</td>

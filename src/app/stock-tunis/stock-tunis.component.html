@@ -26,13 +26,8 @@
             <div class="row">
                 
                 <div class="col-sm-12">
-                    <button type="button" class="btn btn-primary" (click)="searchMaterialDesc()"><i class="fa fa-search"></i></button>
                     <div class="filter-group" >
-                        <input type="text" class="form-control" placeholder="Material Description" [(ngModel)]="materialDesc">
-                    </div>
-                    <button type="button" class="btn btn-primary" (click)="searchMaterialCode()"><i class="fa fa-search"></i></button>
-                    <div class="filter-group" >
-                        <input type="text" class="form-control" placeholder="Material Code" [(ngModel)]="materialCode">
+                        <input type="text" class="form-control" placeholder="Rechercher.." [(ngModel)]="searchText">
                     </div>
                     
                 </div>
@@ -44,6 +39,7 @@
                 <tr>
                     <th>N°</th>
                     <th>Material Code</th>
+                    <th>Models</th>
                     <th>Material Description</th>
                     <th>Serial Number 1</th>
                     <th>Serial Number 2</th>
@@ -55,9 +51,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let stockTunis of stockTunisData | paginate: {itemsPerPage:50,currentPage:p}; let i = index">
+                <tr *ngFor="let stockTunis of stockTunisData | searchStockLocale : searchText | paginate: {itemsPerPage:50,currentPage:p}; let i = index">
                     <td>{{i+1}}</td>
                     <td>{{stockTunis.materialCode}}</td>
+                    <td>{{stockTunis.models}}</td>
                     <td>{{stockTunis.materialDesc}}</td>
                     <td>{{stockTunis.serialNo1}}</td>
                     <td>{{stockTunis.serialNo2}}</td>

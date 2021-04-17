@@ -17,16 +17,17 @@ export class StockTunisService {
    }
   // get all table stock tunis from backend
   public getStockTunis() {
-    return this.http.get("http://localhost:8080/stock/tunis/");
+    return this.http.get("http://localhost:8080/stockWithModels/stockTunis/");
   }
-  // search data with MaterialCode from backend
-  public searchMaterialCode(materialCode){
-    return this.http.get("http://localhost:8080/stock/tunis/materialCode/"+materialCode);
-  }
-  // search  data with MaterialDesc from backend
-  public searchMaterialDesc(materialDesc){
-    return this.http.get("http://localhost:8080/stock/tunis/materialDesc/"+materialDesc);
-  }
+
+  // // search data with MaterialCode from backend
+  // public searchMaterialCode(materialCode){
+  //   return this.http.get("http://localhost:8080/stock/tunis/materialCode/"+materialCode);
+  // }
+  // // search  data with MaterialDesc from backend
+  // public searchMaterialDesc(materialDesc){
+  //   return this.http.get("http://localhost:8080/stock/tunis/materialDesc/"+materialDesc);
+  // }
 
 
 }

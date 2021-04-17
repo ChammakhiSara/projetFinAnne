@@ -11,8 +11,7 @@ export class StockSousseComponent implements OnInit {
   stockSousse: any;
   p: number;
   selectedFile : File;
-  materialCode : any;
-  materialDesc : any;
+  searchText : any;
 
   constructor(private service: StockSousseService) { }
 
@@ -33,16 +32,16 @@ export class StockSousseComponent implements OnInit {
     let msg :any;
     res.subscribe((data)=> msg = data);
   }
-   // search MaterialCode
-   searchMaterialCode(){
-    let res = this.service.searchMaterialCode(this.materialCode);
-    res.subscribe((data)=> this.stockSousse = data);
- } 
- // search MaterialDesc
- searchMaterialDesc(){
-  let res = this.service.searchMaterialDesc(this.materialDesc);
-  res.subscribe((data)=> this.stockSousse = data);
-} 
+//    // search MaterialCode
+//    searchMaterialCode(){
+//     let res = this.service.searchMaterialCode(this.materialCode);
+//     res.subscribe((data)=> this.stockSousse = data);
+//  } 
+//  // search MaterialDesc
+//  searchMaterialDesc(){
+//   let res = this.service.searchMaterialDesc(this.materialDesc);
+//   res.subscribe((data)=> this.stockSousse = data);
+// } 
 
 
   ngOnInit(): void {

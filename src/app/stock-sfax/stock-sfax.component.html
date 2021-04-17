@@ -25,15 +25,9 @@
         <div class="table-filter">
             <div class="row">
                 <div class="col-sm-12">
-                    <button type="button" class="btn btn-primary" (click)="searchMaterialDesc()"><i class="fa fa-search"></i></button>
                     <div class="filter-group" >
-                        <input type="text" class="form-control" placeholder="Material Description" [(ngModel)]="materialDesc">
+                        <input type="search" class="form-control" placeholder="Rechercher.." [(ngModel)]="searchText">
                     </div>
-                    <button type="button" class="btn btn-primary" (click)="searchMaterialCode()"><i class="fa fa-search"></i></button>
-                    <div class="filter-group" >
-                        <input type="text" class="form-control" placeholder="Material Code" [(ngModel)]="materialCode">
-                    </div>
-                    
                 </div>
             </div>
         </div>
@@ -43,6 +37,7 @@
                 <tr>
                     <th>N°</th>
                     <th>Material Code</th>
+                    <th>Models</th>
                     <th>Material Description</th>
                     <th>Serial Number 1</th>
                     <th>Serial Number 2</th>
@@ -54,9 +49,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let stockSfa of stockSfax | paginate: {itemsPerPage:50,currentPage:p}; let i = index">
+                <tr *ngFor="let stockSfa of stockSfax | searchStockLocale : searchText | paginate: {itemsPerPage:50,currentPage:p}; let i = index">
                     <td>{{i+1}}</td>
                     <td>{{stockSfa.materialCode}}</td>
+                    <td>{{stockSfa.models}}</td>
                     <td>{{stockSfa.materialDesc}}</td>
                     <td>{{stockSfa.serialNo1}}</td>
                     <td>{{stockSfa.serialNo2}}</td>

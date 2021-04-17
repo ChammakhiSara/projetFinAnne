@@ -18,14 +18,14 @@ export class StockSfaxService {
 
   // get all table stock sfax from backend
   public getStockSfax(){
-    return this.http.get("http://localhost:8080/stock/sfax/");
+    return this.http.get("http://localhost:8080/stockWithModels/stockSfax/");
   }
-  // search data with MaterialCode from backend
-  public searchMaterialCode(materialCode){
-    return this.http.get("http://localhost:8080/stock/sfax/materialCode/"+materialCode);
-  }
-  // search  data with MaterialDesc from backend
-  public searchMaterialDesc(materialDesc){
-    return this.http.get("http://localhost:8080/stock/sfax/materialDesc/"+materialDesc);
-  }
+  // // search data with MaterialCode from backend
+  // public searchMaterialCode(materialCode){
+  //   return this.http.get("http://localhost:8080/stock/sfax/materialCode/"+materialCode);
+  // }
+  // // search  data with MaterialDesc from backend
+  // public searchMaterialDesc(materialDesc){
+  //   return this.http.get("http://localhost:8080/stock/sfax/materialDesc/"+materialDesc);
+  // }
 }

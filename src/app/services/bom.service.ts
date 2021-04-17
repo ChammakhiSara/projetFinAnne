@@ -23,18 +23,18 @@ export class BOMService {
     return this.http.get("http://localhost:8080/bom/");
   }
 
-  // search bom data with description from backend
-  public searchBOMDescription(description){
-    return this.http.get("http://localhost:8080/bom/description/"+description);
-  }
-   // search bom data with model from backend
-   public searchBOMModel(model){
-    return this.http.get("http://localhost:8080/bom/model/"+model);
-  }
-   // search bom data with sapCode from backend
-   public searchBOMSapCode(sapCode){
-    return this.http.get("http://localhost:8080/bom/sapCode/"+sapCode);
-  }
+  // // search bom data with description from backend
+  // public searchBOMDescription(description){
+  //   return this.http.get("http://localhost:8080/bom/description/"+description);
+  // }
+  //  // search bom data with model from backend
+  //  public searchBOMModel(model){
+  //   return this.http.get("http://localhost:8080/bom/model/"+model);
+  // }
+  //  // search bom data with sapCode from backend
+  //  public searchBOMSapCode(sapCode){
+  //   return this.http.get("http://localhost:8080/bom/sapCode/"+sapCode);
+  // }
 
 
 }

@@ -25,6 +25,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { JwtAuthHtppInterceptorService } from './jwt-auth-htpp-interceptor.service';
 import { AuthenticationService } from './authentication.service';
 import { AuthGuardService } from './auth-guard.service';
+import { FiltreBomPipe } from './filtres/filtre-bom.pipe';
+import { FiltreCountryStockPipe } from './filtres/filtre-country-stock.pipe';
+import { FiltreStockLocalePipe } from './filtres/filtre-stock-locale.pipe';
+
 
 @NgModule({
   declarations: [
@@ -38,6 +42,9 @@ import { AuthGuardService } from './auth-guard.service';
     StockTunisComponent,
     StockSousseComponent,
     StockSfaxComponent,
+    FiltreBomPipe,
+    FiltreCountryStockPipe,
+    FiltreStockLocalePipe,
     
     
   ],
