@@ -68,36 +68,29 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Nom</label>
-                        <input type="text" id="name" formControlName="nom" class="form-control"
-                            [ngClass]="{'is-invalid': submitted && addAgencesForm.controls.nom.errors, 'is-valid': submitted &&  !addAgencesForm.controls.nom.errors}">
-                        <div *ngIf="submitted && addAgencesForm.controls.nom.errors" 
-                        class="invalid-feedback d-block">
-                            <div *ngIf="addAgencesForm.controls.nom.errors.required">Ce champ doit être rempli</div>
-
-                        </div>
+                        <input type="text" id="name" formControlName="nom" class="form-control">
+                        <div class="invalid-feedback d-block"
+                        *ngIf="addAgencesForm.controls['nom'].hasError('required') && addAgencesForm.controls['nom'].touched">
+                        Ce champ doit être rempli</div>
                     </div>
                     <div class="form-group">
                         <label>Adresse</label>
-                        <textarea id="address" formControlName="adresse" class="form-control"
-                            [ngClass]="{'is-invalid': submitted && addAgencesForm.controls.adresse.errors, 'is-valid': submitted &&  !addAgencesForm.controls.adresse.errors}"></textarea>
-                        <div *ngIf="submitted && addAgencesForm.controls.adresse.errors"
-                            class="invalid-feedback d-block">
-                            <div *ngIf="addAgencesForm.controls.adresse.errors.required">Ce champ doit être rempli</div>
-                        </div>
+                        <textarea id="address" formControlName="adresse" class="form-control"></textarea>
+                        <div class="invalid-feedback d-block"
+                        *ngIf="addAgencesForm.controls['adresse'].hasError('required') && addAgencesForm.controls['adresse'].touched">
+                        Ce champ doit être rempli</div>
                     </div>
                     <div class="form-group">
                         <label>Telephone</label>
-                        <input type="text" id="tele" formControlName="telephone" class="form-control"
-                            [ngClass]="{'is-invalid': submitted && addAgencesForm.controls.telephone.errors, 'is-valid': submitted &&  !addAgencesForm.controls.telephone.errors}">
-                        <div *ngIf="submitted && addAgencesForm.controls.telephone.errors"
-                            class="invalid-feedback d-block">
-                            <div *ngIf="addAgencesForm.controls.telephone.errors.required">Ce champ doit être rempli</div>
-                        </div>
+                        <input type="text" id="tele" formControlName="telephone" class="form-control">
+                        <div class="invalid-feedback d-block"
+                        *ngIf="addAgencesForm.controls['telephone'].hasError('required') && addAgencesForm.controls['telephone'].touched">
+                        Ce champ doit être rempli</div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-default" data-dismiss="modal" value="Annuler">
-                    <button class="btn btn-info" (click)="addAgence()">Ajouter</button>
+                    <button [disabled]="addAgencesForm.invalid" data-dismiss="modal" class="btn btn-info" (click)="addAgence()">Ajouter</button>
                 </div>
             </form>
         </div>
@@ -115,35 +108,29 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Nom</label>
-                        <input type="text" id="name1" formControlName="nom" class="form-control"
-                            [ngClass]="{'is-invalid': submitted && editAgencesForm.controls.nom.errors, 'is-valid': submitted &&  !editAgencesForm.controls.nom.errors}">
-                        <div *ngIf="submitted && editAgencesForm.controls.nom.errors" 
-                        class="invalid-feedback d-block">
-                            <div *ngIf="editAgencesForm.controls.nom.errors.required">Ce champ doit être rempli</div>
-                        </div>
+                        <input type="text" id="name1" formControlName="nom" class="form-control">
+                        <div class="invalid-feedback d-block"
+                        *ngIf="editAgencesForm.controls['nom'].hasError('required') && editAgencesForm.controls['nom'].touched">
+                        Ce champ doit être rempli</div>
                     </div>
                     <div class="form-group">
                         <label>Adresse</label>
-                        <input type="text" id="address1" formControlName="adresse" class="form-control"
-                            [ngClass]="{'is-invalid': submitted && editAgencesForm.controls.adresse.errors, 'is-valid': submitted &&  !editAgencesForm.controls.adresse.errors}">
-                        <div *ngIf="submitted && editAgencesForm.controls.adresse.errors"
-                            class="invalid-feedback d-block">
-                            <div *ngIf="editAgencesForm.controls.adresse.errors.required">Ce champ doit être rempli</div>
-                        </div>
+                        <input type="text" id="address1" formControlName="adresse" class="form-control">
+                        <div class="invalid-feedback d-block"
+                        *ngIf="editAgencesForm.controls['adresse'].hasError('required') && editAgencesForm.controls['adresse'].touched">
+                        Ce champ doit être rempli</div>
                     </div>
                     <div class="form-group">
                         <label>Telephone</label>
-                        <input type="text" id="tele1" formControlName="telephone" class="form-control"
-                            [ngClass]="{'is-invalid': submitted && editAgencesForm.controls.telephone.errors, 'is-valid': submitted &&  !editAgencesForm.controls.telephone.errors}">
-                        <div *ngIf="submitted && editAgencesForm.controls.telephone.errors"
-                            class="invalid-feedback d-block">
-                            <div *ngIf="editAgencesForm.controls.telephone.errors.required">Ce champ doit être rempli</div>
-                        </div>
+                        <input type="text" id="tele1" formControlName="telephone" class="form-control">
+                        <div class="invalid-feedback d-block"
+                        *ngIf="editAgencesForm.controls['telephone'].hasError('required') && editAgencesForm.controls['telephone'].touched">
+                        Ce champ doit être rempli</div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-default" data-dismiss="modal" value="Annuler">
-                    <button class="btn btn-info" (click)="editAgence(idEdit)">Enregistrer</button>
+                    <button [disabled]="editAgencesForm.invalid" class="btn btn-info" data-dismiss="modal" (click)="editAgence(idEdit)">Enregistrer</button>
                 </div>
             </form>
         </div>
@@ -164,7 +151,7 @@
                 </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-default" data-dismiss="modal" value="Annuler">
-                    <button class="btn btn-danger" (click)="deleteAgence(idDelete)">Supprimer</button>
+                    <button class="btn btn-danger" data-dismiss="modal" (click)="deleteAgence(idDelete)">Supprimer</button>
                 </div>
             </form>
         </div>

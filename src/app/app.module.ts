@@ -54,7 +54,8 @@ import { FiltreStockLocalePipe } from './filtres/filtre-stock-locale.pipe';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    
   ],
   providers: [AgenceServiceService, UserServiceService, BOMService, StockTotaleService, StockTunisService, StockSfaxService, StockSousseService,AuthenticationService,AuthGuardService,JwtAuthHtppInterceptorService,{  
     provide:HTTP_INTERCEPTORS, useClass:JwtAuthHtppInterceptorService, multi:true 
