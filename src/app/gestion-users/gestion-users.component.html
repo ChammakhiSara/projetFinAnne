@@ -24,8 +24,8 @@
                         </th>
                         <th>Nom</th>
                         <th>Prénom</th>
-                        <th>Nom d'utilisateur</th>
-                        <th>Mot De Passe</th>
+                        <th>Nom d'utilisateur</th>  
+                        <th>Role</th>                      
                         <th>Agence</th>
                         <th>Actions</th>
                     </tr>
@@ -42,7 +42,7 @@
                         <td>{{ user.nom }}</td>
                         <td>{{ user.prenom }}</td>
                         <td>{{ user.username }}</td>
-                        <td>{{ user.motDePasse }}</td>
+                        <td>{{user.roles[0].name}}</td>
                         <td>{{ user.agence.nom }}</td>
                         
                         <td>
@@ -115,6 +115,22 @@
                         <div *ngIf="submitted && addUsersForm.controls.motDePasse.errors"
                             class="invalid-feedback d-block">
                             <div *ngIf="addUsersForm.controls.motDePasse.errors.required">Ce champ doit être rempli</div>
+                        </div>
+                    </div>
+                    <!--ajout du champ select des agences -->
+                    <div class="form-group">
+                        <label>Role</label>
+                        <select formControlName="role" class="form-control">
+                            <option selected disabled value="">Choisir un role</option>
+                            <option value="ADMIN">ADMIN</option>
+                            <option value="MAGASINIER">MAGASINIER</option>
+                            <option value="MAGASINIERSOUSSE">MAGASINIER SOUSSE</option>
+                            <option value="MAGASINIERSFAX">MAGASINIER SFAX</option>
+                            
+                        </select>
+                         
+                        <div *ngIf="submitted && addUsersForm.controls.agence.errors?.required" class="invalid-feedback d-block">
+                            <sup>*</sup>Tu dois choisir une agence
                         </div>
                     </div>
                 </div>

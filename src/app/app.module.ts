@@ -28,6 +28,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { FiltreBomPipe } from './filtres/filtre-bom.pipe';
 import { FiltreCountryStockPipe } from './filtres/filtre-country-stock.pipe';
 import { FiltreStockLocalePipe } from './filtres/filtre-stock-locale.pipe';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { FiltreStockLocalePipe } from './filtres/filtre-stock-locale.pipe';
     FiltreBomPipe,
     FiltreCountryStockPipe,
     FiltreStockLocalePipe,
+    ForbiddenComponent,
     
     
   ],

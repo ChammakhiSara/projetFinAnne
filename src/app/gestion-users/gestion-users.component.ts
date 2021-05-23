@@ -24,7 +24,8 @@ export class GestionUsersComponent implements OnInit {
     prenom: new FormControl('', [Validators.required]),
     agence: new FormControl('', [Validators.required]),
     username: new FormControl('', [Validators.required]),
-    motDePasse: new FormControl('', [Validators.required])
+    motDePasse: new FormControl('', [Validators.required]),
+    role :  new FormControl('', [Validators.required]),
   });
 
   /*  initialisation des entrées du formulaire edit */
@@ -54,20 +55,26 @@ export class GestionUsersComponent implements OnInit {
     }
     else {
       let user = this.addUsersForm.value;
+
       // stocker l'agence id depuis le formulaire
       let a = user.agence;
       console.log(a);
       // mettre l'agenceid null du user pour avoir le format correct du url requete de l'api backend spring add user
       user.agence = null;
+      // stocker le role depuis le formulaire
+      let role = user.role
+      user.role = null;
       console.log(user);
-      let response = this.service.addUser(user ,a );
+      let response = this.service.addUser(user ,a, role);
       let msg: any;
-      response.subscribe((data) => msg = data);
+      response.subscribe((data) => {
+        //recharger la page
+        alert("Utilisateur ajouté avec succés");
+        window.location.reload();
+      });
 
-      console.log("retour" + msg);
-      //recharger la page
-      alert("Utilisateur ajouté avec succés");
-      window.location.reload();
+     
+      
     }
   }
 

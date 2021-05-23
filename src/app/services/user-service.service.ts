@@ -9,8 +9,8 @@ export class UserServiceService {
   constructor(private http:HttpClient) { }
 
   // add user with backend 
-  public addUser(user: any , agenceID){
-    return this.http.post("http://localhost:8080/users/"+agenceID,user,{responseType:'text' as 'json'})
+  public addUser(user: any , agenceID, role){
+    return this.http.post("http://localhost:8080/users/"+agenceID+"/"+role,user,{responseType:'text' as 'json'})
     
   }
 
