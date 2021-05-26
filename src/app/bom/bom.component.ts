@@ -33,7 +33,14 @@ export class BOMComponent implements OnInit {
     const uploadExcelData = new FormData();
     uploadExcelData.append('file', this.selectedFile, this.selectedFile.name);
     let res = this.service.uploadBomToBackend(uploadExcelData);
-    res.subscribe((data)=>console.log(data)
+    res.subscribe(
+      data=>{
+      console.log(data)
+      alert('BOM importé avec succés.')
+      },
+      error=>{
+        alert("une erreur s'est produite veuiilez réessayer")
+      }
       
      );
    }

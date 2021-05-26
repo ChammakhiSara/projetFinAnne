@@ -22,6 +22,9 @@ section{
 	width: 400px;
 	padding: 70px 30px;
 	border-radius: 10px;
+	/*Background transparente couleur noir*/
+	background-color: rgb(5, 5, 5); /* alternative solide */
+    background-color: rgba(5, 5, 5, 0.7);	
 	box-shadow:7px 7px 60px #000;
 }
 h1{

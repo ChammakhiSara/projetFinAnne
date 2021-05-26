@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand"><img src="./assets/img/logo.jpg"></a>
+  <a class="navbar-brand"><img src="./assets/img/logo.png"></a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -11,14 +11,14 @@
       <!-- the routerLinkActive make the current page on (click) active -->
       
       <li routerLinkActive="active current" class="nav-item">
-        <a  [routerLink]="['/navbar/BOM']" class="nav-link">BOM</a>
+        <a  [routerLink]="['/navbar/BOM']" class="nav-link"> <b>BOM</b> </a>
       </li>
       <li routerLinkActive="active current" class="nav-item">
-        <a [routerLink]="['/navbar/stock-totale']" class="nav-link" >STOCK TOTALE</a>
+        <a [routerLink]="['/navbar/stock-totale']" class="nav-link" > <b>STOCK TOTALE</b> </a>
       </li>
       <li routerLinkActive="active current" class="nav-item dropdown dmenu">
         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          STOCK LOCALE
+         <b>STOCK LOCALE</b> 
         </a>
         <div class="dropdown-menu sm-menu">
           <a [routerLink]="['/navbar/stock-tunis']" class="dropdown-item">Tunis</a>
@@ -28,7 +28,7 @@
       </li>
       <li routerLinkActive="active current" class="nav-item dropdown dmenu">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          ADMIN
+          <B>ADMINISTRATION</B>
         </a>
         <div class="dropdown-menu sm-menu">
           <a [routerLink]="['/navbar/gestion-agences']" class="dropdown-item">Gestion agences</a>
